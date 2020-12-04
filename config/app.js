@@ -239,5 +239,7 @@ module.exports = {
     sameSite: false,
     path: '/',
     maxAge: 7200
-  }
+  },
+
+  defaultPerPage: Env.get('DEFAULT_PER_PAGE', 10),
 }

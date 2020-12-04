@@ -2,6 +2,7 @@
 
 const Contact = use('App/Models/Contact');
 const ContactDatum = use('App/Models/ContactDatum');
+const Config = use('Config')
 
 class ContactService {
     /**
@@ -41,6 +42,11 @@ class ContactService {
             .with('emailAddresses')
             .with('mailingAddresses')
             .first();
+    }
+
+    async getAllContactsForUser(user, options) {
+        return user.contacts()
+            .paginate(options.page || 1, options.perPage || Config.get('app.defaultPerPage'))
     }
 }
 
