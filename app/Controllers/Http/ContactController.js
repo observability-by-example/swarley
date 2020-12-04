@@ -4,72 +4,55 @@
 /** @typedef {import('@adonisjs/framework/src/Response')} Response */
 /** @typedef {import('@adonisjs/framework/src/View')} View */
 
-/**
- * Resourceful controller for interacting with contacts
- */
+/** @type {import('../../Services/ContactService')} */
+const ContactService = use('App/Services/ContactService');
+const contactService = new ContactService();
+
 class ContactController {
   /**
-   * Show a list of all contacts.
-   * GET contacts
+   * Return all contacts belonging to a user.
    *
    * @param {object} ctx
    * @param {Request} ctx.request
    * @param {Response} ctx.response
-   * @param {View} ctx.view
    */
   async index ({ request, response, view }) {
   }
 
   /**
-   * Render a form to be used for creating a new contact.
-   * GET contacts/create
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   * @param {View} ctx.view
-   */
-  async create ({ request, response, view }) {
-  }
-
-  /**
-   * Create/save a new contact.
-   * POST contacts
+   * Add a new contact for this user.
    *
    * @param {object} ctx
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
-  async store ({ request, response }) {
+  async store ({ auth, request, response }) {
+    const {
+      name,
+      phoneNumbers = [],
+      emailAddresses = [],
+      mailingAddresses = []
+    } = request.all()
+    const user = await auth.getUser();
+    const contact = await contactService.create(
+        user, name, phoneNumbers, emailAddresses, mailingAddresses
+    )
+    return {data: contact};
   }
 
   /**
-   * Display a single contact.
+   * View a single contact.
    * GET contacts/:id
    *
    * @param {object} ctx
    * @param {Request} ctx.request
    * @param {Response} ctx.response
-   * @param {View} ctx.view
    */
-  async show ({ params, request, response, view }) {
+  async show ({ params, request, response }) {
   }
 
   /**
-   * Render a form to update an existing contact.
-   * GET contacts/:id/edit
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   * @param {View} ctx.view
-   */
-  async edit ({ params, request, response, view }) {
-  }
-
-  /**
-   * Update contact details.
-   * PUT or PATCH contacts/:id
+   * Update a contact's details.
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -79,8 +62,7 @@ class ContactController {
   }
 
   /**
-   * Delete a contact with id.
-   * DELETE contacts/:id
+   * Delete a contact.
    *
    * @param {object} ctx
    * @param {Request} ctx.request

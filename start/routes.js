@@ -22,6 +22,9 @@ Route.group(() => {
 }).prefix('/auth')
     .middleware('guest')
 
+Route.resource('contacts', 'ContactController')
+    .apiOnly().middleware('auth')
+
 Route.get('/', () => {
   return { greeting: 'Hello world in JSON' }
 })
