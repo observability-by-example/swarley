@@ -1,28 +1,20 @@
 # Swarley
 
-Backend API for a fictional phonebook app to manage a list of people and their contact details.
+Backend API for a fictional phonebook app to manage a list of people and their contact details. Built with Adonis.js.
 
-1. Bodyparser
-2. Authentication
-3. CORS
-4. Lucid ORM
-5. Migrations and seeds
+## Requirements
+- Node.js (>= v8.0.0)
+- Adonis CLI installed globally: `npm i -g @adonisjs/cli`.
 
 ## Setup
-
-Use the adonis command to install the blueprint
-
-```bash
-adonis new yardstick --api-only
-```
-
-or manually clone the repo and then run `npm install`.
-
-
-### Migrations
-
-Run the following command to run startup migrations.
-
-```js
-adonis migration:run
-```
+- Install dependencies:
+  ```
+  npm install
+  ```
+- Copy the `.env.example` file to a `.env` file, then run `adonis key:generate` to generate an app encryption key. It will be automatically set as the `APP_KEY` value in your `.env` file.
+- Set up the database:
+  ```
+  adonis migration:run
+  ```
+  This will create a `swarley.sqlite` file in your database/ folder and set up the database schema.
+- Start the app by running `adonis serve` (or `adonis serve --dev` to start in watch mode.)
