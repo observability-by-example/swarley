@@ -7,6 +7,8 @@ class ContactSchema extends Schema {
   up () {
     this.create('contacts', (table) => {
       table.increments()
+      table.string('name').notNullable().unique()
+      table.integer('user_id').references('id').inTable('users')
       table.timestamps()
     })
   }
