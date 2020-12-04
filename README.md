@@ -1,6 +1,6 @@
-# Adonis API application
+# Swarley
 
-This is the boilerplate for creating an API server in AdonisJs, it comes pre-configured with.
+Backend API for a fictional phonebook app to manage a list of people and their contact details.
 
 1. Bodyparser
 2. Authentication
