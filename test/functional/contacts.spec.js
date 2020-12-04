@@ -45,3 +45,22 @@ test('Users can create a contact', async ({assert, client}) => {
     assert.equal(body.data.user_id, user.id)
 })
 
+test('Users can fetch only their contacts', async ({assert, client}) => {
+    const user1 = await Factory.model('App/Models/User').create()
+    const user2 = await Factory.model('App/Models/User').create()
+    const contacts = await Factory.model('App/Models/Contact').makeMany(3)
+    await user1.contacts().saveMany([contacts[0], contacts[2]])
+    await user2.contacts().save(contacts[1])
+
+    const response = await client.get('/contacts')
+        .header('accept', 'application/json')
+        .loginVia(user1, 'jwt')
+        .end()
+
+    response.assertStatus(200)
+    const body = response.body
+    assert.equal(body.data.length, 2)
+    body.data.forEach(contact => assert.equal(contact.user_id, user1.id))
+    assert.equal(body.data[0].id, contacts[0].id)
+    assert.equal(body.data[1].id, contacts[2].id)
+})
