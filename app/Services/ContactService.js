@@ -36,7 +36,7 @@ class ContactService {
         await ContactDatum.createMany(contactData)
         return Contact // TODO set these relations on the model so we don't have to call with() always
             .query()
-            .where({id: user.id})
+            .where({user_id: user.id})
             .with('phoneNumbers')
             .with('emailAddresses')
             .with('mailingAddresses')
