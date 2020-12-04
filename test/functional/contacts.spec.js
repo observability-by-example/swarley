@@ -1,22 +1,14 @@
 'use strict'
 
-const {before, beforeEach, after, afterEach, test, trait} = use('Test/Suite')('Contacts')
+const {before, test, trait} = use('Test/Suite')('Contacts')
 
 trait('Test/ApiClient')
 trait('Auth/Client')
 
-const User = use('App/Models/User');
-
-let user;
-
-before(async () => {
-    user = await User.create({
-        email: 'contact@gd.com',
-        password: 'ahg4r45yjhd',
-    });
-})
+const Factory = use('Factory');
 
 test('Users can create a contact', async ({assert, client}) => {
+    const user = await Factory.model('App/Models/User').create()
     const contactData = {
         name: "Pete",
         phoneNumbers: [
@@ -52,3 +44,4 @@ test('Users can create a contact', async ({assert, client}) => {
     const body = response.body
     assert.equal(body.data.user_id, user.id)
 })
+
