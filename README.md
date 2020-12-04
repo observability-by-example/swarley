@@ -18,3 +18,9 @@ Backend API for a fictional phonebook app to manage a list of people and their c
   ```
   This will create a `swarley.sqlite` file in your database/ folder and set up the database schema.
 - Start the app by running `adonis serve` (or `adonis serve --dev` to start in watch mode.)
+
+## Testing
+For testing, we're making use of Adonis' test runner, [Vow](https://github.com/adonisjs/adonis-vow). Tests are defined in the test/ folder. To run tests:
+```
+adonis test
+``` 
