@@ -7,6 +7,11 @@ const Model = use('Model')
 const Hash = use('Hash')
 
 class User extends Model {
+  static get hidden () {
+    // Don't include these fields in responses.
+    return ['password', 'tokens']
+  }
+
   static boot () {
     super.boot()
 
