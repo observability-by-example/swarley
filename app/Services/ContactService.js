@@ -45,8 +45,18 @@ class ContactService {
     }
 
     async getAllContactsForUser(user, options) {
-        return user.contacts()
-            .paginate(options.page || 1, options.perPage || Config.get('app.defaultPerPage'))
+        // The sort parameter is specified via a direction specifier (+ or -) and field name
+        // Example: (?sort=+name, ?sort=-created_at)
+        let orderBy = options.sort || null;
+
+        let query = user.contacts()
+        if (orderBy) {
+            const direction = orderBy[0] === '-' ? 'desc' : 'asc';
+            orderBy = orderBy.slice(1)
+            query = query.orderBy(orderBy, direction)
+        }
+
+        return query.paginate(options.page || 1, options.perPage || Config.get('app.defaultPerPage'))
     }
 }
 

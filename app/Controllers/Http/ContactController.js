@@ -17,7 +17,7 @@ class ContactController {
      * @param {Response} ctx.response
      */
     async index({auth, request, response, view}) {
-        const options = request.only(['page', 'perPage']); // Filtering, sorting and pagination options
+        const options = request.only(['page', 'perPage', 'sort']); // Filtering, sorting and pagination options
         return contactService.getAllContactsForUser(await auth.getUser(), options)
     }
 
