@@ -12,6 +12,10 @@ class ContactController {
     /**
      * Return all contacts belonging to a user.
      *
+     * @queryParam {string} page
+     * @queryParam {string} perPage
+     * @queryParam {string} sort Sort results by a field and direction. Use + for ascending or - for decreasing. Example: (?sort=+name, ?sort=-created_at)
+     *
      * @param {object} ctx
      * @param {Request} ctx.request
      * @param {Response} ctx.response

@@ -25,6 +25,8 @@
     "@adonisjs/ignitor": "^2.0.8",
     "@adonisjs/lucid": "^6.1.3",
     "@adonisjs/vow": "^1.0.17",
+    "@knuckleswtf/scribe": "^1.2.0",
+    "@knuckleswtf/scribe-adonis": "^1.2.0",
     "sqlite3": "^5.0.0"
   },
   "devDependencies": {},

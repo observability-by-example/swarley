@@ -1,0 +1,280 @@
+{
+    "variable": [
+        {
+            "id": "baseUrl",
+            "key": "baseUrl",
+            "type": "string",
+            "name": "string",
+            "value": "127.0.0.1:3333"
+        }
+    ],
+    "info": {
+        "name": "Swarley Documentation",
+        "description": "",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "_postman_id": "a8e325aa-60cd-4ccd-8125-ac32a2cd3aa9"
+    },
+    "item": [
+        {
+            "name": "Endpoints",
+            "description": "",
+            "item": [
+                {
+                    "name": "Sign up",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "auth/signup",
+                            "query": [],
+                            "raw": "http://{{baseUrl}}/auth/signup"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": null,
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "auth/getToken",
+                            "query": [],
+                            "raw": "http://{{baseUrl}}/auth/getToken"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": null
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Return all contacts belonging to a user.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "contacts",
+                            "query": [
+                                {
+                                    "key": "page",
+                                    "value": "aut",
+                                    "description": "",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "perPage",
+                                    "value": "molestiae",
+                                    "description": "",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "sort",
+                                    "value": "(%3Fsort%3D%2Bname%2C%20%3Fsort%3D-created_at)",
+                                    "description": "Sort results by a field and direction. Use + for ascending or - for decreasing.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "http://{{baseUrl}}/contacts?page=aut&perPage=molestiae&sort=(%3Fsort%3D%2Bname%2C%20%3Fsort%3D-created_at)"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": null
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Add a new contact for this user.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "contacts",
+                            "query": [],
+                            "raw": "http://{{baseUrl}}/contacts"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": null
+                    },
+                    "response": []
+                },
+                {
+                    "name": "View a single contact.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "contacts/:id",
+                            "query": [],
+                            "raw": "http://{{baseUrl}}/contacts/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "5407",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "GET contacts/:id"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update a contact's details.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "contacts/:id",
+                            "query": [],
+                            "raw": "http://{{baseUrl}}/contacts/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "50708",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": null
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete a contact.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "contacts/:id",
+                            "query": [],
+                            "raw": "http://{{baseUrl}}/contacts/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "30711",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": null
+                    },
+                    "response": []
+                },
+                {
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "",
+                            "query": [],
+                            "raw": "http://{{baseUrl}}/"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": null
+                    },
+                    "response": []
+                }
+            ]
+        }
+    ],
+    "auth": {
+        "type": "bearer"
+    }
+}

@@ -3,6 +3,10 @@
 const User = use('App/Models/User');
 
 class AuthController {
+  /**
+   * Sign up
+   * @unauthenticated
+   */
   async signup({ auth, request, response }) {
     const data = request.only(['email', 'password']);
     const user = await User.create(data);
