@@ -1,7 +1,7 @@
 'use strict'
 const { v4: uuidv4 } = use('uuid')
 
-class CorrelationIdGetter {
+class CorrelationIdSetter {
     static get inject () {
       return ['Context']
     }
@@ -11,9 +11,10 @@ class CorrelationIdGetter {
     }
   
     async handle ({ request }, next) {
-      this.context.set('requestId', uuidv4())
+      const requestId = request.header('x-correlation-id', undefined) || uuidv4()
+      this.context.set('requestId', requestId)
       await next()
     }
 }
 
-module.exports = CorrelationIdGetter
+module.exports = CorrelationIdSetter
