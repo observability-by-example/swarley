@@ -1,6 +1,7 @@
 'use strict'
 
 const Contact = use('App/Models/Contact');
+const Avatar = use('App/Models/Avatar')
 const ContactDatum = use('App/Models/ContactDatum');
 const Config = use('Config')
 
@@ -13,7 +14,9 @@ class ContactService {
      * @param {Response} ctx.response
      */
     async create (user, name, phoneNumbers, emailAddresses, mailingAddresses) {
-        const data = {name, user_id: user.id}
+        const avatarModel = new Avatar()
+        const avatarResponse = await avatarModel.byUsername(name)
+        const data = {name, user_id: user.id, image_url: avatarResponse.url}
         const contact = await Contact.create(data)
 
         // Inserting them manually rather than using Adonis relations

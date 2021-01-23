@@ -3,6 +3,8 @@
 /** @type {import('@adonisjs/framework/src/Env')} */
 const Env = use('Env')
 
+const context = use('Context')
+
 module.exports = {
 
   /*
@@ -221,7 +223,9 @@ module.exports = {
       name: 'adonis-app',
       filename: 'adonis.log',
       level: 'info'
-    }
+    },
+
+    filters: [(function(level, msg, meta) { return `CorrelationId: ${context.get('requestId')} ${msg}`})]
   },
 
   /*

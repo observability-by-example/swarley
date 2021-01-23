@@ -1,0 +1,30 @@
+version: '3.5'
+
+services:
+  app:
+    image: node:14.15.4
+    ports:
+      - 3333:3333
+    container_name: contact-service
+    working_dir: /src
+    command: >
+      bash -c "npm install && node ace migration:run && npm run start"
+    volumes:
+      - .:/src
+    networks:
+      - main_network
+  db:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    ports:
+      - 3306:3306
+    restart: always
+    environment:
+      MYSQL_DATABASE: swarley
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+    networks:
+      - main_network
+
+networks:
+  main_network:
+    name: elastic_external_network
