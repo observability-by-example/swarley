@@ -27,7 +27,11 @@
     "@adonisjs/vow": "^1.0.17",
     "@knuckleswtf/scribe": "^1.2.0",
     "@knuckleswtf/scribe-adonis": "^1.2.0",
-    "sqlite3": "^5.0.0"
+    "adonis-context": "0.0.0",
+    "axios": "^0.21.1",
+    "mysql": "^2.18.1",
+    "sqlite3": "^5.0.0",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {},
   "autoload": {
