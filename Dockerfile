@@ -6,6 +6,8 @@ COPY . /src
 
 WORKDIR /src
 
+RUN npm i -g @adonisjs/cli
+
 RUN npm install && node ace migration:run
 
-CMD npm start
+CMD adonis serve --dev
