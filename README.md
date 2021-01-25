@@ -1,6 +1,6 @@
 # Swarley
 
-Backend API for a fictional phonebook app to manage a list of people and their contact details. Built with Adonis.js.
+Backend API for a fictional phonebook app to manage a list of people and their contact details. Built in JS (Adonis.js 4.1).
 
 ## Setup 
 ### With Docker

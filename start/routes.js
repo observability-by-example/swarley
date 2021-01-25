@@ -15,6 +15,7 @@
 
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
+const logger = use('Logger')
 
 Route.group(() => {
   Route.post('/signup', 'AuthController.signup')
@@ -26,5 +27,6 @@ Route.resource('contacts', 'ContactController')
     .apiOnly().middleware('auth')
 
 Route.get('/', () => {
+  logger.info(`Heyooo`)
   return { greeting: 'Hello world in JSON' }
 })
