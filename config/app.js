@@ -4,8 +4,6 @@
 const Env = use('Env')
 const winston = require('winston')
 
-const context = use('Context')
-
 module.exports = {
 
     /*
@@ -208,7 +206,8 @@ module.exports = {
             level: 'info',
             format: winston.format.combine(
                 winston.format((info, opts) => {
-                    info.correlationId = context.get('requestId')
+                    const context = use('Adonis/Src/HttpContext')
+                    info.correlationId = context.requestId
                     return info
                 })(),
                 winston.format.colorize(),

@@ -13,9 +13,9 @@ const Server = use('Server')
 |
 */
 const globalMiddleware = [
+  'App/Middleware/SetCorrelationId',
   'Adonis/Middleware/BodyParser',
   'App/Middleware/ConvertEmptyStringsToNull',
-  'App/Middleware/CorrelationIdSetter'
 ]
 
 /*
