@@ -1,6 +1,5 @@
 'use strict'
 
-const TraceParent = require('traceparent');
 const apm = require('elastic-apm-node');
 
 class SetTraceId {
@@ -14,10 +13,7 @@ class SetTraceId {
 
     async handle({request}, next) {
         // Get ID from the traceparent header if available
-        const traceParentHeader = request.header('traceparent')
-        const traceId = traceParentHeader
-            ? TraceParent.fromString(traceParentHeader).traceId
-            : require('crypto').randomBytes(16).toString('hex')
+        const traceId = apm.currentTraceIds['trace.id']
         this.context.traceId = traceId
         await next()
     }
