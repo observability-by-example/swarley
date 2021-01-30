@@ -29,9 +29,10 @@
     "@knuckleswtf/scribe": "^1.2.0",
     "@knuckleswtf/scribe-adonis": "^1.2.0",
     "axios": "^0.21.1",
+    "elastic-apm-node": "^3.10.0",
     "mysql": "^2.18.1",
     "sqlite3": "^5.0.0",
-    "uuid": "^8.3.2"
+    "traceparent": "^1.0.0"
   },
   "devDependencies": {},
   "autoload": {

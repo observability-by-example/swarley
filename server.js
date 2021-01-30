@@ -1,5 +1,7 @@
 'use strict'
 
+require('elastic-apm-node').start()
+
 /*
 |--------------------------------------------------------------------------
 | Http server

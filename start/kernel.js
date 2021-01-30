@@ -13,7 +13,7 @@ const Server = use('Server')
 |
 */
 const globalMiddleware = [
-  'App/Middleware/SetCorrelationId',
+  'App/Middleware/SetTraceId',
   'Adonis/Middleware/BodyParser',
   'App/Middleware/ConvertEmptyStringsToNull',
 ]

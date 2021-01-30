@@ -207,7 +207,7 @@ module.exports = {
             format: winston.format.combine(
                 winston.format((info, opts) => {
                     const context = use('Adonis/Src/HttpContext')
-                    info.correlationId = context.requestId
+                    info.traceId = context.traceId
                     return info
                 })(),
                 winston.format.colorize(),
