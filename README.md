@@ -9,7 +9,7 @@ Backend API for a fictional phonebook app to manage a list of people and their c
 
 
 ### Without Docker
-You'll need Node.js (>= v10.0.0)
+You'll need Node.js (>= v12.0.0)
 
 - Install dependencies:
   ```
