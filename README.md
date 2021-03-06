@@ -15,10 +15,10 @@ You'll need Node.js (>= v12.0.0)
   ```
   npm install
   ```
-  - Install the Adonis CLI globally:
+- Install the Adonis CLI globally:
   ```
   npm i -g @adonisjs/cli
   ```
 - Copy the `.env.example` file to a `.env` file
-- Set up the database by running `node ace migration:run`. This will create a `swarley.sqlite` file in your database/ folder and set up the database schema.
+- Set up the database by running `node ace migration:run`. This will create a `swarley.sqlite` file in your database/ folder, set up the database schema, and create a new user with email `ned@flanders.com` and password `admin`.
 - Start the app on http://localhost:3333 by running `adonis serve --dev`
