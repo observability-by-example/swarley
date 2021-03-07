@@ -2,7 +2,6 @@
 
 /** @type {import('@adonisjs/framework/src/Env')} */
 const Env = use('Env')
-const winston = require('winston')
 
 module.exports = {
 
@@ -202,37 +201,9 @@ module.exports = {
         */
         console: {
             driver: 'console',
-            name: 'adonis-app',
+            name: 'swarley',
             level: 'info',
-            format: winston.format.combine(
-                winston.format((info, opts) => {
-                    const context = use('Adonis/Src/HttpContext')
-                    info.traceId = context.traceId
-                    return info
-                })(),
-                winston.format.colorize(),
-                winston.format.splat(),
-                winston.format.simple(),
-            )
-        },
-
-        /*
-        |--------------------------------------------------------------------------
-        | File Transport
-        |--------------------------------------------------------------------------
-        |
-        | File transport uses file driver and writes log messages for a given
-        | file inside `tmp` directory for your app.
-        |
-        | For a different directory, set an absolute path for the filename.
-        |
-        */
-        file: {
-            driver: 'file',
-            name: 'adonis-app',
-            filename: 'adonis.log',
-            level: 'info'
-        },
+        }
 
     },
 
